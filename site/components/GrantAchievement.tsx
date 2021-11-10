@@ -5,7 +5,7 @@ import {FormControl, FormLabel, FormHelperText} from '@chakra-ui/form-control'
 import {Select} from '@chakra-ui/select'
 import User from '../interfaces/user'
 
-export default function({ users, badgeNameList } : { users: User[], badgeNameList: string[]}) {
+export default function GrantAchievement({ users, badgeNameList } : { users: User[], badgeNameList: string[]}) {
 
     const [userSelect, setUserSelect] = React.useState("")
 

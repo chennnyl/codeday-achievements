@@ -5,7 +5,7 @@ import {Input} from '@chakra-ui/input'
 import { NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from '@chakra-ui/number-input'
 import React from 'react'
 
-export default function() {
+export default function AddAchievement() {
     const createAchievement = async (event: any) => {
         event.preventDefault()
 

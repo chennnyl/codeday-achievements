@@ -1,9 +1,8 @@
-import Box, { Grid } from '@codeday/topo/Atom/Box'
-import Text from '@codeday/topo/Atom/Text'
+import { Grid } from '@codeday/topo/Atom/Box'
 import Badge from '../interfaces/badge'
 import BadgeComponent from './Badge'
 
-export default function({ badges } : { badges: Badge[]}) {
+export default function UserBadgesDisplay({ badges } : { badges: Badge[]}) {
     return (
         <Grid templateColumns="repeat(3, 1fr)">
             {

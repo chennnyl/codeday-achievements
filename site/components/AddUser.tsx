@@ -3,7 +3,7 @@ import Button from '@codeday/topo/Atom/Button'
 import {FormControl, FormLabel, FormHelperText} from '@chakra-ui/form-control'
 import {Input} from '@chakra-ui/input'
 
-export default function() {
+export default function AddAchievement() {
     const createUser = async (event: any) => {
         event.preventDefault()
 
