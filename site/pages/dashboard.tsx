@@ -9,7 +9,7 @@ import Badge from '../interfaces/badge'
 
 export default function Dashboard({ users, badgeNameList } : { users: User[], badgeNameList: string[] }) {
     return(
-        <Page>
+        <Page title="Dashboard">
             <Content mt={-8}>
                 <Text fontSize="6xl" bold>Dashboard Home</Text>
                 <Text fontSize="4xl" bold>Create an Achievement</Text>

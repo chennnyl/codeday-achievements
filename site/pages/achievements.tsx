@@ -7,7 +7,7 @@ import BadgeCategories from '../interfaces/categories'
 
 export default function BadgePage({ categories } : { categories: BadgeCategories}) {
     return (
-        <Page>
+        <Page title="Achievements">
             <Content mt={-8}>
                 <Text fontSize="6xl" bold>Achievement List</Text>
                 {Object.entries(categories).map(entry => {

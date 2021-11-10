@@ -16,7 +16,7 @@ export default function Home({ userBadges } : { userBadges: UserBadges[] }) {
         others = userBadges.slice(3)
     }
     return(
-        <Page>
+        <Page title="Leaderboard">
             <Content mt={-8}>
                 <Text fontSize="6xl" bold>Achievements Leaderboard</Text>
                 <Box>
