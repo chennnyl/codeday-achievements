@@ -20,7 +20,12 @@ BadgeName = str
 @dataclass
 class User:
     name: str
+    email: str
     badges: List[BadgeName]
+    
+    @staticmethod
+    def json(user):
+        return {"name": user["name"], "email": user["email"], "badges": user["badges"]}
 
     def dict(self):
-        return {"name": self.name, "badges": self.badges}
+        return {"name": self.name, "email": self.email, "badges": self.badges}

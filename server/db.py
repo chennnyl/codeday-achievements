@@ -14,9 +14,11 @@ ResultFilter = Dict[str, int]
 class MongoCursor(MongoClient):
     def get_user(self, query_filter : UserFields = None, result_filter : ResultFilter = None) -> User:
         result : UserFields = self[DBNAME][USERCOL].find_one(query_filter)
+        result.pop("_id")
         return User(**result)
     def get_badge(self, query_filter : BadgeFields = None, result_filter: ResultFilter = None) -> Badge:
         result : BadgeFields = self[DBNAME][BADGECOL].find_one(query_filter)
+        result.pop("_id")
         return Badge(**result)
 
     def get_all_users(self, result_filter: ResultFilter = None) -> List[User]:
@@ -32,6 +34,14 @@ class MongoCursor(MongoClient):
 
     def create_badge(self, badge : Badge) -> InsertOneResult:
         return self[DBNAME][BADGECOL].replace_one({"name": badge.name}, badge.dict(), upsert=True)
+
+    def add_badge(self, user : str, badge : str):
+        return self[DBNAME][USERCOL].update_one({"name": user}, {"$addToSet": {"badges": badge}})
+    
+    def get_badges_from_user(self, user : str):
+        user_badge_names : List[str] = self.get_user({"name": user}).badges
+        badges_from_names : List[BadgeFields] = [self.get_badge({"name": badge}) for badge in user_badge_names]
+        return badges_from_names
 
 class MongoConnection:
     def __init__(self, *args, **kwargs):
