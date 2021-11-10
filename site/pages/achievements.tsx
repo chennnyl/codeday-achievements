@@ -15,15 +15,15 @@ export default function BadgePage({ categories } : { categories: BadgeCategories
                     [category, badges] = entry
 
                     return (
-                        <Box>
-                        <Heading>{category}</Heading>
-                        <Grid key={category} templateColumns="repeat(2, 1fr)">
-                        {badges.map(
-                            badge => (
-                                <Badge key={badge.name} badge={badge} />
-                            )
-                        )}
-                        </Grid>
+                        <Box key={category}>
+                            <Heading>{category}</Heading>
+                            <Grid templateColumns="repeat(2, 1fr)">
+                            {badges.map(
+                                badge => (
+                                    <Badge key={badge.name} badge={badge} />
+                                )
+                            )}
+                            </Grid>
                         </Box>
                     )
                 })}

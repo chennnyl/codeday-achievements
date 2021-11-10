@@ -21,7 +21,6 @@ export default ({ children }: any): JSX.Element => (
                 </SiteLogo>
                 <Menu>
                     <Button as="a" href="/" variant="ghost">Leaderboard</Button>
-                    <Button as="a" href="/players" variant="ghost">Players</Button>
                     <Button as="a" href="/achievements" variant="ghost">Achievements</Button>
                     <Button as="a" href="/dashboard" variant="ghost">Dashboard</Button>
                 </Menu>

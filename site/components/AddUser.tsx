@@ -4,9 +4,30 @@ import {FormControl, FormLabel, FormHelperText} from '@chakra-ui/form-control'
 import {Input} from '@chakra-ui/input'
 
 export default function() {
+    const createUser = async (event: any) => {
+        event.preventDefault()
+
+        const jsonBody = {
+            name: event.target.name.value,
+            email: event.target.email.value
+        }        
+
+        const res = await fetch(
+            "http://localhost:3001/users",
+            {
+                body: JSON.stringify(jsonBody),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                method: "POST"
+            }
+        )
+        const result = await res.json()
+        alert(result.status)
+    }
     return (
         <Box p={4} border="1px" borderColor="gray.400" w={3/4}>
-            <form>
+            <form onSubmit={createUser}>
                 <FormControl isRequired>
                     <FormLabel htmlFor="user-name">Attendee name</FormLabel>
                     <Input type="text" id="user-name" name="name"/>
