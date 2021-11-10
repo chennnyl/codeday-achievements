@@ -20,10 +20,9 @@ export default ({ children }: any): JSX.Element => (
                     </Text>
                 </SiteLogo>
                 <Menu>
-                    <Button as="a" href="/" variant="ghost">Home</Button>
+                    <Button as="a" href="/" variant="ghost">Leaderboard</Button>
                     <Button as="a" href="/players" variant="ghost">Players</Button>
                     <Button as="a" href="/achievements" variant="ghost">Achievements</Button>
-                    <Button as="a" href="/leaderboard" variant="ghost">Leaderboard</Button>
                     <Button as="a" href="/dashboard" variant="ghost">Dashboard</Button>
                 </Menu>
             </Header>

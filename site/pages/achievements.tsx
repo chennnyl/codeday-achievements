@@ -1,7 +1,7 @@
 import Page from '../components/Page'
 import Badge from '../components/Badge'
 import Text, { Heading } from '@codeday/topo/Atom/Text'
-import Box from '@codeday/topo/Atom/Box'
+import Box, { Grid } from '@codeday/topo/Atom/Box'
 import Content from '@codeday/topo/Molecule/Content'
 import BadgeCategories from '../interfaces/categories'
 
@@ -13,14 +13,17 @@ export default function BadgePage({ categories } : { categories: BadgeCategories
                 {Object.entries(categories).map(entry => {
                     let category, badges
                     [category, badges] = entry
+
                     return (
-                        <Box key={category}>
+                        <Box>
                         <Heading>{category}</Heading>
+                        <Grid key={category} templateColumns="repeat(2, 1fr)">
                         {badges.map(
                             badge => (
                                 <Badge key={badge.name} badge={badge} />
                             )
                         )}
+                        </Grid>
                         </Box>
                     )
                 })}
