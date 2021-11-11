@@ -13,7 +13,7 @@ export default function AddAchievement() {
         }        
 
         const res = await fetch(
-            "http://localhost:3001/users",
+            "/api/users",
             {
                 body: JSON.stringify(jsonBody),
                 headers: {

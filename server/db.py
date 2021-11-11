@@ -49,7 +49,7 @@ class MongoConnection:
         self.ckwargs : Dict[Any] = kwargs
         self.cargs : List[Any] = args
     def __enter__(self) -> MongoCursor:
-        self.client = MongoCursor("mongodb://localhost:27017/", *self.cargs, **self.ckwargs)
+        self.client = MongoCursor("mongodb://mongo:27017/", *self.cargs, **self.ckwargs)
         return self.client
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.client.close()

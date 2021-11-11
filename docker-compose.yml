@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mongo:
+    restart: always
+    image: mongo
+    volumes:
+      - ./mongo:/data/db
+
+  flask:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+    depends_on:
+      - mongo  
+
+  next:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./site
+    depends_on:
+      - mongo
+    environment:
+      API_BASE_URL: "http://localhost:3000/api"
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    depends_on:
+      - flask
+      - next
+    ports:
+      - 3000:80

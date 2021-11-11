@@ -38,11 +38,11 @@ export default function Home({ userBadges } : { userBadges: UserBadges[] }) {
 }
 
 export async function getServerSideProps() {
-    const userRes = await fetch("http://localhost:3001/users")
+    const userRes = await fetch("http://flask:3001/users")
     const users : User[] = await userRes.json()
     const badgeRes : UserBadges[] = [...await Promise.all(users.map(async (user): Promise<UserBadges> => {
         const userBadgesRes = await fetch(
-            "http://localhost:3001/users/badges",
+            "http://flask:3001/users/badges",
             {
                 body: JSON.stringify({"name": user.name}),
                 headers: {

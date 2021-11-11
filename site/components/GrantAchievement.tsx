@@ -35,7 +35,7 @@ export default function GrantAchievement({ users, badgeNameList } : { users: Use
         }
 
         const res = await fetch(
-            "http://localhost:3001/badges/add",
+            "/api/badges/add",
             {
                 body: JSON.stringify(jsonBody),
                 headers: {

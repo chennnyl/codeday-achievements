@@ -16,10 +16,8 @@ export default function AddAchievement() {
             category: event.target.category.value
         }
 
-        console.log(jsonBody.points)
-
         const res = await fetch(
-            "http://localhost:3001/badges",
+            "/api/badges",
             {
                 body: JSON.stringify(jsonBody),
                 headers: {

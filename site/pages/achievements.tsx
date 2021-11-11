@@ -34,7 +34,7 @@ export default function BadgePage({ categories } : { categories: BadgeCategories
 }
 
 export async function getServerSideProps() {
-    const res = await fetch("http://localhost:3001/badges")
+    const res = await fetch("http://flask:3001/badges")
     const categories = await res.json()
 
     return { props: { categories: {...categories} } }
