@@ -22,9 +22,7 @@ services:
       context: ./site
     depends_on:
       - mongo
-    environment:
-      API_BASE_URL: "http://localhost:3000/api"
-
+      
   nginx:
     restart: always
     build:
