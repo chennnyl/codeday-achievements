@@ -64,7 +64,7 @@ export default function AddAchievement() {
                     <Input type="text" id="category"/>
                 </FormControl>
                 <br/>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" bg="success.bg" textColor="white">Submit</Button>
             </form>
         </Box>
     )
