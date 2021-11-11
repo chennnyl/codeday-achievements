@@ -37,7 +37,7 @@ export default function Home({ userBadges } : { userBadges: UserBadges[] }) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req }: { req: any }) {
     const userRes = await fetch("http://flask:3001/users")
     const users : User[] = await userRes.json()
     const badgeRes : UserBadges[] = [...await Promise.all(users.map(async (user): Promise<UserBadges> => {
@@ -59,5 +59,5 @@ export async function getServerSideProps() {
         return result;
     }))]
 
-    return { props: { userBadges : badgeRes } }
+    return { props: { userBadges: badgeRes, cookies: req.headers.cookie ?? ""  } }
 }

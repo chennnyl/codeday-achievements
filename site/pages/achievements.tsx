@@ -33,9 +33,11 @@ export default function BadgePage({ categories } : { categories: BadgeCategories
     )
 }
 
-export async function getServerSideProps() {
-    const res = await fetch("http://flask:3001/badges")
-    const categories = await res.json()
+export async function getServerSideProps({ req }: { req: any }) {
+  const res = await fetch("http://flask:3001/badges");
+  const categories = await res.json();
 
-    return { props: { categories: {...categories} } }
+  return {
+    props: { categories: { ...categories }, cookies: req.headers.cookie ?? "" },
+  };
 }

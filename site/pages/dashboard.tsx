@@ -23,12 +23,12 @@ export default function Dashboard({ users, badgeNameList } : { users: User[], ba
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req }: { req: any }) {
     const badgeRes = await fetch("http://flask:3001/badges")
     const userRes = await fetch("http://flask:3001/users")
     const badgeCategories = await badgeRes.json()
     const badgeNameList = Object.entries(badgeCategories).map((e)=>(e[1] as Badge[]).map(b=>b.name)).flat()
     const users = await userRes.json()
 
-    return { props: { users, badgeNameList } }
+    return { props: { users, badgeNameList, cookies: req.headers.cookie ?? "" } }
 }

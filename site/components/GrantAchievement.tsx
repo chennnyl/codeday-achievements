@@ -67,7 +67,7 @@ export default function GrantAchievement({ users, badgeNameList } : { users: Use
                     </Select>
                 </FormControl>
                 <br/>
-                <Button type="submit">Submit</Button>
+                <Button type="submit"  bg="success.bg" textColor="white">Submit</Button>
             </form>
         </Box>
     )
